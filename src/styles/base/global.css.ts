@@ -14,6 +14,7 @@ globalStyle("html, body", {
 
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
+  border: "1px solid red", // 삭제 예정
 });
 
 globalStyle("*, *::before, *::after", {

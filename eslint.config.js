@@ -32,7 +32,12 @@ export default [
       ...reactHooks.configs.recommended.rules,
       ...reactRefresh.configs.vite.rules,
       ...prettier.rules,
-      "prettier/prettier": "error",
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto",
+        },
+      ],
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },

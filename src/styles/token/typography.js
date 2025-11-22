@@ -1,64 +1,54 @@
 import { fontWeight } from "./font";
 
 export const typography = {
-  display: {
-    fontSize: "5rem", // 50px
-    fontWeight: fontWeight.semibold,
+  title1: {
+    fontSize: "2.2rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.semibold,
   },
-  heading1: {
-    fontSize: "3.2rem", // 32px
-    fontWeight: fontWeight.semibold,
+  title2: {
+    fontSize: "2rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.semibold,
   },
-  heading2: {
-    fontSize: "2.4rem", // 24px
-    fontWeight: fontWeight.semibold,
+  sub_title1: {
+    fontSize: "1.8rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.semibold,
   },
-  heading3: {
-    fontSize: "1.8rem", // 18px
-    fontWeight: fontWeight.semibold,
+  sub_title2: {
+    fontSize: "1.8rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.medium,
   },
   body1: {
-    fontSize: "1.6rem", // 16px
-    fontWeight: fontWeight.semibold,
+    fontSize: "1.6rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.semibold,
   },
   body2: {
-    fontSize: "1.6rem", // 16px
-    fontWeight: fontWeight.medium,
+    fontSize: "1.6rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.medium,
   },
   body3: {
-    fontSize: "1.4rem", // 14px
-    fontWeight: fontWeight.medium,
+    fontSize: "1.4rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.semibold,
   },
   body4: {
-    fontSize: "1.4rem", // 14px
-    fontWeight: fontWeight.regular,
-    lineHeight: "160%",
-    letterSpacing: "-0.025em",
+    fontSize: "1.4rem",
+    lineHeight: "140%",
+    fontWeight: fontWeight.medium,
   },
   caption1: {
-    fontSize: "1.2rem", // 12px
-    fontWeight: fontWeight.medium,
+    fontSize: "1.2rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.semibold,
   },
   caption2: {
-    fontSize: "1.2rem", // 12px
-    fontWeight: fontWeight.regular,
+    fontSize: "1.2rem",
     lineHeight: "140%",
-    letterSpacing: "-0.025em",
+    fontWeight: fontWeight.medium,
   },
 };
