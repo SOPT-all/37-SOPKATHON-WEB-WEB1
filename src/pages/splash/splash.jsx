@@ -7,12 +7,12 @@ import { useEffect } from "react";
 const Splash = () => {
   const navigate = useNavigate();
 
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       navigate("/");
-  //     }, 2000);
-  //     return () => clearTimeout(timer);
-  //   }, [navigate]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/");
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div className={styles.container}>
