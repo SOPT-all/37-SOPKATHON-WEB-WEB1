@@ -6,7 +6,9 @@ import AddVideo from "../pages/add-video/add-video";
 import MyPage from "../pages/my-page/my-page";
 import AiScore from "../pages/ai-score/ai-score";
 import { SignUpPage } from "../pages/sign-up/sign-up";
+import { Splash } from "../pages/splash/splash";
 import { DetailPage } from "../pages/detail/detail";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +16,10 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Splash />,
+      },
+      {
+        path: "/main",
         element: <MainPage />,
       },
       {
