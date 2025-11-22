@@ -32,7 +32,7 @@ export const buttonVariants = styleVariants({
   gray: [
     base,
     {
-      backgroundColor: color.gray[500],
+      backgroundColor: color.gray[400],
       color: color.gray[800],
     },
   ],
