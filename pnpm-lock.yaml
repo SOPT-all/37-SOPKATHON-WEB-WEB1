@@ -2378,7 +2378,7 @@ snapshots:
   '@pkgr/core@0.2.9': {}
 
   '@rolldown/pluginutils@1.0.0-beta.47': {}
-  "@rolldown/pluginutils@1.0.0-beta.47": {}
+
 
   "@rollup/rollup-android-arm-eabi@4.53.3":
     optional: true
