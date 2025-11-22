@@ -4,9 +4,9 @@ import { typography } from "../../styles/token/typography";
 
 export const base = style({
   width: "100%",
-  padding: "0.5rem",
-  border: `1px solid ${color.gray[500]}`,
-  borderRadius: "0.5rem",
-  backgroundColor: color.white[700],
-  ...typography.body4,
+  padding: "1.2rem",
+  border: `1px solid ${color.gray[400]}`,
+  borderRadius: "0.8rem",
+  backgroundColor: color.white,
+  ...typography.body2,
 });
