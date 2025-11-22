@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import * as styles from "./detail.css";
 import leftIcon from "./../../assets/icons/leftIcon.png";
-import likeOn from "../../assets/icons/like-on.png";
-import likeOff from "../../assets/icons/like-off.png";
+// import likeOn from "../../assets/icons/like-on.png";
+// import likeOff from "../../assets/icons/like-off.png";
 // 실제 API 경로에 맞게 수정해서 사용하시면 됩니다.
 // const getVideo = async (videoId) => {
 //   const res = await fetch(`/api/v1/videos?videoId=${videoId}`);

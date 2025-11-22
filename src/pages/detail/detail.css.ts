@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { color } from "../../styles/token/color";
 import { typography } from "../../styles/token/typography";
-import backgroundImage from "../../assets/images/background.png";
+import backgroundImg from "../../assets/images/background.png";
 
 export const container = style([
   {
@@ -13,7 +13,7 @@ export const container = style([
     flexDirection: "column",
     alignItems: "center",
     position: "relative",
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: `url(${backgroundImg})`,
   },
 ]);
 
@@ -75,5 +75,6 @@ export const statusText = style({
 
 export const likeText = style({
   color: "white",
+  textShadow: "0 2px 4px rgba(0, 0, 0, 0.25)",
   ...typography.caption2,
 });
