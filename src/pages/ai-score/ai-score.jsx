@@ -18,7 +18,7 @@ const AiScore = () => {
   const handleDelete = async () => {
     if (!videoId) {
       alert("삭제할 영상 정보가 없습니다.");
-      navigate("/");
+      navigate("/main");
       return;
     }
 
@@ -30,7 +30,7 @@ const AiScore = () => {
       setIsDeleting(true);
       await deleteVideo(videoId, memberId);
       alert("영상이 삭제되었습니다.");
-      navigate("/");
+      navigate("/main");
     } catch (error) {
       console.error("삭제 실패:", error);
       alert(
@@ -43,7 +43,7 @@ const AiScore = () => {
   };
 
   const handleUpload = () => {
-    navigate("/");
+    navigate("/main");
   };
 
   return (

@@ -18,6 +18,7 @@ const MainGrid = ({ videos }) => {
         return (
           <div key={video.videoId} className={classNames}>
             <VideoPreview
+              videoId={video.videoId}
               idx={index}
               nickname={video.nickname}
               likeCount={video.likeCount}
