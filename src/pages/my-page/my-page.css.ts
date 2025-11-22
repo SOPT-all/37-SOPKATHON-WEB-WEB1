@@ -16,3 +16,20 @@ export const content = style({
   backgroundRepeat: "no-repeat",
 });
 
+export const postsContainer = style({
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 1fr)",
+  gap: "1.6rem",
+  padding: "1.6rem",
+  width: "100%",
+  boxSizing: "border-box",
+});
+
+export const postItem = style({
+  width: "16.3rem",
+  height: "29rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+});
+

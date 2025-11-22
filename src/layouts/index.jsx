@@ -4,7 +4,9 @@ import Footer from "../components/footer/footer";
 const Layout = () => {
   const location = useLocation();
   const hideFooter =
-    location.pathname === "/add-video" || location.pathname === "/ai-score";
+    location.pathname === "/add-video" ||
+    location.pathname === "/ai-score" ||
+    location.pathname === "/";
 
   return (
     <div
