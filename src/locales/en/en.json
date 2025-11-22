@@ -1,0 +1,8 @@
+{
+  "greeting": "Hello",
+  "welcome": "Welcome to my blog",
+  "video": {
+    "start": "Get your leaves assessed",
+    "videoUpload": "Video upload"
+  }
+}
