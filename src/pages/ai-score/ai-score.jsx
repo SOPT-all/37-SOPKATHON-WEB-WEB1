@@ -1,10 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../../components/button/button";
 import * as styles from "./ai-score.css";
 import backgroundImage from "../../assets/images/ai-score-background.svg";
 
 const AiScore = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const videoId = location.state?.videoId;
+  const score = location.state?.score || 78;
+  const memberId = localStorage.getItem("memberId") || "1";
 
   const handleDelete = () => {
     navigate("/");
@@ -28,12 +33,12 @@ const AiScore = () => {
 
       <div className={styles.mainContent}>
         <h2 className={styles.title}>
-          낙엽의 지배자님의
+          {memberId}님의
           <br />
           낙엽 평가가 완료되었어요!
         </h2>
 
-        <p className={styles.scoreText}>78점</p>
+        <p className={styles.scoreText}>{score}점</p>
       </div>
 
       <div className={styles.buttonContainer}>
