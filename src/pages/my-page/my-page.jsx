@@ -65,6 +65,7 @@ const MyPage = () => {
             <div key={post.videoId} className={styles.postItem}>
               <VideoPreview
                 idx={-1}
+                videoId={post.videoId}
                 nickname={post.nickname}
                 likeCount={post.likeCount}
                 imageUrl={post.imageUrl}

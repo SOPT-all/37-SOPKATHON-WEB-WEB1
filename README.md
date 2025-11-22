@@ -54,6 +54,12 @@ AI 점수 평가를 받고 싶은 낙엽 밟기 영상을 업로드합니다.
             <td style="border: 1px solid #ccc;">박원</td>
             <td style="border: 1px solid #ccc;">오수빈</td>
         </tr>
+        <tr>
+            <td style="border: 1px solid #ccc;">스플래쉬, 회원가입,영상 상세 조회 페이지 구현 / 회원가입, 상세조회 API 연동</td>
+            <td style="border: 1px solid #ccc;">vercel 배포, 영상 업로드 훅, 마이페이지 구현 및 API 연동</td>
+            <td style="border: 1px solid #ccc;">공통 푸터, 영상 업로드 및 점수 평가 페이지 구현 / 마이페이지 API 연동</td>
+            <td style="border: 1px solid #ccc;">디자인 시스템 구축, 메인 피드 페이지 구현, 피드 API 연동 </td>
+        </tr>
     </tbody>
 </table>
 
