@@ -4,6 +4,7 @@ import icGood from "../../assets/icons/ic-good.svg";
 import icFirst from "../../assets/icons/icon-first.svg";
 import icSecond from "../../assets/icons/icon-second.svg";
 import icThird from "../../assets/icons/icon-third.svg";
+import { useNavigate } from "react-router-dom";
 
 const RankBadge = ({ idx }) => {
   switch (idx) {
@@ -19,9 +20,14 @@ const RankBadge = ({ idx }) => {
 };
 
 export { RankBadge };
-const VideoPreview = ({ nickname, likeCount, imageUrl, idx }) => {
+const VideoPreview = ({ nickname, likeCount, imageUrl, idx, videoId }) => {
+  const navigate = useNavigate();
   return (
-    <button type="button" className={styles.container}>
+    <button
+      type="button"
+      className={styles.container}
+      onClick={() => navigate(`/detail/${videoId}`)}
+    >
       <img src={imageUrl} alt={nickname} className={styles.image} />
       <div className={styles.nicknameWrapper}>
         <RankBadge idx={idx} />
