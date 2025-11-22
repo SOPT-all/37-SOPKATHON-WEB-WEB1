@@ -28,9 +28,12 @@ export const nicknameWrapper = style([
   {
     display: "flex",
     alignItems: "center",
-    gap: "0.6rem",
+    gap: "0.4rem",
     top: "0.8rem",
     left: "1.2rem",
+    padding: "0 0.8rem",
+    borderRadius: "100px",
+    backgroundColor: "#D27003",
   },
 ]);
 
@@ -47,8 +50,8 @@ export const nickname = style([
 export const likes = style([
   overlayBase,
   {
-    right: "1.2rem",
-    bottom: "0.8rem",
+    right: "1rem",
+    bottom: "1rem",
     display: "flex",
     alignItems: "center",
     color: "#FFFFFF",
