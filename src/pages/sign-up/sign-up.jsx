@@ -12,7 +12,8 @@ export const SignUpPage = () => {
     nickname: "",
     password: "",
   }); // 회원가입/로그인 데이터
-  const [error, setError] = useState(false);
+
+  const [error, setError] = useState(""); // 에러 메시지 관리
 
   // 입력 값 핸들링
   const handleFormData = (e) => {
@@ -23,15 +24,27 @@ export const SignUpPage = () => {
     }));
   };
 
-  // 회원가입 API
+  // 회원가입/로그인 API
   const handleSubmit = async () => {
-    console.log("클릭됨");
-    const { success, data } = await postLogin(formData);
+    setError(""); // 기존 에러 초기화
 
-    if (success) {
+    const { code, data, msg } = await postLogin(formData);
+
+    if (code === 200) {
+      // 응답 데이터에서 userId / nickname 추출
+      const { userId, nickname } = data;
+
+      if (userId != null) {
+        localStorage.setItem("userId", String(userId));
+      }
+      if (nickname) {
+        localStorage.setItem("nickname", nickname);
+      }
+
       navigate("/main", { replace: true });
     } else {
-      setError(true);
+      // 실패 시 서버에서 내려준 msg 사용
+      setError(msg || "로그인에 실패했습니다. 다시 시도해주세요.");
     }
   };
 
@@ -47,21 +60,17 @@ export const SignUpPage = () => {
             type="text"
             value={formData.nickname}
             name="nickname"
-            onChange={(e) => handleFormData(e)}
+            onChange={handleFormData}
             placeholder="닉네임 입력"
           />
           <Input
             type="password"
             value={formData.password}
             name="password"
-            onChange={(e) => handleFormData(e)}
+            onChange={handleFormData}
             placeholder="비밀번호 입력"
           />
-          {error && (
-            <div className={styles.error}>
-              사용할 수 없는 닉네임입니다.(임시)
-            </div>
-          )}
+          {error && <div className={styles.error}>{error}</div>}
         </div>
         <Button onClick={handleSubmit}>시작하기</Button>
       </div>

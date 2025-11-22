@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         element: <Splash />,
       },
       {
-        index: "/main",
+        path: "/main",
         element: <MainPage />,
       },
       {
