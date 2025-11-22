@@ -40,7 +40,7 @@ export const scoreText = style({
   fontWeight: 700,
   color: "#DC453A",
   textAlign: "center",
-  marginTop: "38.5rem",
+  marginTop: "43rem",
 });
 
 export const buttonContainer = style({

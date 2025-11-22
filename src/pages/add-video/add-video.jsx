@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AddVideoHeader from "../../components/add-video-header/add-video-header";
 import { Button } from "../../components/button/button";
 import { useUpload } from "../../hooks/useUpload";
+import { uploadVideo } from "../../apis/videoApi";
 import * as styles from "./add-video.css";
 import plusGrayIcon from "../../assets/icons/plus-gray.png";
 import backgroundImage from "../../assets/images/background.png";
 
 const AddVideo = () => {
+  const navigate = useNavigate();
   const [description, setDescription] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
   const {
     selectedFile,
     preview,
@@ -17,19 +21,47 @@ const AddVideo = () => {
     resetUpload,
   } = useUpload();
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!selectedFile) {
       alert("파일을 선택해주세요.");
       return;
     }
 
-    console.log("업로드", {
-      file: selectedFile,
-      description: description,
-    });
+    if (!description.trim()) {
+      alert("게시글을 작성해주세요.");
+      return;
+    }
 
-    resetUpload();
-    setDescription("");
+    try {
+      setIsUploading(true);
+
+      const memberId = localStorage.getItem("memberId") || "1";
+
+      const response = await uploadVideo(selectedFile, description, memberId);
+
+      console.log("업로드 성공:", response);
+
+      if (response.data) {
+        navigate("/ai-score", {
+          state: {
+            videoId: response.data.videoId,
+            score: response.data.score,
+          },
+        });
+      } else {
+        alert("영상 업로드에 성공했습니다!");
+        resetUpload();
+        setDescription("");
+      }
+    } catch (error) {
+      console.error("업로드 실패:", error);
+      alert(
+        error.response?.data?.message ||
+          "영상 업로드 중 오류가 발생했습니다. 다시 시도해주세요."
+      );
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -81,8 +113,13 @@ const AddVideo = () => {
         />
 
         <div className={styles.buttonWrapper}>
-          <Button type="primary" size="medium" onClick={handleUpload}>
-            업로드하기
+          <Button
+            type="primary"
+            size="medium"
+            onClick={handleUpload}
+            disabled={isUploading}
+          >
+            {isUploading ? "업로드 중..." : "업로드하기"}
           </Button>
         </div>
       </div>
