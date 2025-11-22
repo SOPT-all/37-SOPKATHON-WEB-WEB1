@@ -22,7 +22,14 @@ const RankBadge = ({ idx }) => {
 };
 
 export { RankBadge };
-const VideoPreview = ({videoId, nickname, likeCount, imageUrl, idx, showRankBadge = true }) => {
+const VideoPreview = ({
+  videoId,
+  nickname,
+  likeCount,
+  imageUrl,
+  idx,
+  showRankBadge = true,
+}) => {
   const navigate = useNavigate();
   const [currentLikeCount, setCurrentLikeCount] = useState(likeCount);
   const [isLiking, setIsLiking] = useState(false);

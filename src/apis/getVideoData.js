@@ -2,7 +2,14 @@ import { get } from "./http";
 
 export const getVideoData = async (videoId) => {
   try {
-    const response = await get(`/api/v1/videos/${videoId}`);
+    const memberId = localStorage.getItem("memberId") || "1";
+
+    const response = await get(`/api/v1/videos/${videoId}`, {
+      headers: {
+        ...{ memberId },
+      },
+    });
+
     console.log("Get Video Data API response:", response);
 
     return response.data;
