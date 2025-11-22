@@ -12,9 +12,9 @@ export const base = style({
   color: color.gray[500], // 기본 글씨 색
   ...typography.body2,
 
-  // "::placeholder": {
-  //   color: color.gray[500],
-  // },
+  "::placeholder": {
+    color: color.gray[500],
+  },
 
   ":focus": {
     color: color.black,
