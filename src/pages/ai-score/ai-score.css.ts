@@ -53,7 +53,7 @@ export const scoreBoardImage = style({
 
 export const scoreText = style({
   position: "absolute",
-  top: "58%",
+  top: "53.5%",
   left: "50%",
 
   transform: "translate(-50%, -50%)",
