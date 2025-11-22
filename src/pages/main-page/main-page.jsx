@@ -7,6 +7,10 @@ import LOGO from "../../assets/icons/logo.svg";
 import Character6 from "../../assets/images/img_character6.png";
 import Character5 from "../../assets/images/img_character5.png";
 import TEXT from "../../assets/images/home_text.png";
+import { get } from "../../apis/http";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useCallback } from "react";
 
 const MOCK_VIDEOS = [
   {
@@ -72,15 +76,41 @@ const MOCK_VIDEOS = [
 ];
 
 const MainPage = () => {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchVideos = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await get(`/api/v1/videos/home`);
+      console.log(response);
+      const newData = response || [];
+      setVideos(newData);
+      console.log(newData);
+    } catch (error) {
+      console.error("피드 불러오기 실패", error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchVideos();
+  }, [fetchVideos]);
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <img src={LOGO} alt="로고" />
       </header>
-      <img className={styles.text} src={TEXT} />
-      <img className={styles.yellow} src={Character5} />
-      <img className={styles.red} src={Character6} />
-      <MainGrid videos={MOCK_VIDEOS} />;
+      {!loading && (
+        <>
+          <img className={styles.text} src={TEXT} />
+          <img className={styles.yellow} src={Character5} />
+          <img className={styles.red} src={Character6} />
+          <MainGrid videos={MOCK_VIDEOS} />;
+        </>
+      )}
     </div>
   );
 };
