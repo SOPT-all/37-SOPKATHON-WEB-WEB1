@@ -22,16 +22,18 @@ const RankBadge = ({ idx }) => {
 };
 
 export { RankBadge };
-const VideoPreview = ({ nickname, likeCount, imageUrl, idx, videoId }) => {
-  const navigate = useNavigate();
+
 const VideoPreview = ({ videoId, nickname, likeCount, imageUrl, idx }) => {
+  const navigate = useNavigate();
   const [currentLikeCount, setCurrentLikeCount] = useState(likeCount);
   const [isLiking, setIsLiking] = useState(false);
 
   const handleLikeClick = async (e) => {
     e.stopPropagation();
 
-    if (isLiking) return;
+    if (isLiking) {
+      return;
+    }
 
     try {
       setIsLiking(true);
@@ -51,7 +53,9 @@ const VideoPreview = ({ videoId, nickname, likeCount, imageUrl, idx }) => {
     <button
       type="button"
       className={styles.container}
-      onClick={() => navigate(`/detail/${videoId}`)}
+      onClick={() => {
+        navigate(`/detail/${videoId}`);
+      }}
     >
       <img src={imageUrl} alt={nickname} className={styles.image} />
       <div className={styles.nicknameWrapper}>
