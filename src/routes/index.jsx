@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
         element: <AiScore />,
       },
       {
-        path: "detail",
+        path: "detail/:id",
         element: <DetailPage />,
       },
     ],

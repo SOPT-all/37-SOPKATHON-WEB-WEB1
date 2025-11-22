@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as styles from "./detail.css";
 import leftIcon from "./../../assets/icons/leftIcon.png";
 // import likeOn from "../../assets/icons/like-on.png";
@@ -17,8 +17,8 @@ import leftIcon from "./../../assets/icons/leftIcon.png";
 
 export const DetailPage = () => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const videoId = searchParams.get("videoId");
+  const { id } = useParams();
+  //   const videoId = .get("videoId");
 
   const [videoData, setVideoData] = useState({
     memberId: 42,
