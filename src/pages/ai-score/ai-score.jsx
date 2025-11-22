@@ -18,7 +18,7 @@ const AiScore = () => {
   const handleDelete = async () => {
     if (!videoId) {
       alert("삭제할 영상 정보가 없습니다.");
-      navigate("/");
+      navigate("/main");
       return;
     }
 
@@ -30,7 +30,7 @@ const AiScore = () => {
       setIsDeleting(true);
       await deleteVideo(videoId, memberId);
       alert("영상이 삭제되었습니다.");
-      navigate("/");
+      navigate("/main");
     } catch (error) {
       console.error("삭제 실패:", error);
       alert(
@@ -43,19 +43,11 @@ const AiScore = () => {
   };
 
   const handleUpload = () => {
-    navigate("/");
+    navigate("/main");
   };
 
   return (
-    <div
-      className={styles.pageContainer}
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className={styles.pageContainer}>
       <h1 className={styles.header}>점수 확인</h1>
 
       <div className={styles.mainContent}>
@@ -64,7 +56,11 @@ const AiScore = () => {
           <br />
           낙엽 평가가 완료되었어요!
         </h2>
-
+        <img
+          src={backgroundImage}
+          alt="점수 배경"
+          className={styles.scoreBoardImage}
+        />
         <p className={styles.scoreText}>{score}점</p>
       </div>
 

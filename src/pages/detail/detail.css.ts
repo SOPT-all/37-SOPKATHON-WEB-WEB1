@@ -73,6 +73,10 @@ export const statusText = style({
   color: "#777777",
 });
 
+export const iconStyle = style({
+  width: "2.4rem",
+});
+
 export const likeText = style({
   color: "white",
   textShadow: "0 2px 4px rgba(0, 0, 0, 0.25)",
