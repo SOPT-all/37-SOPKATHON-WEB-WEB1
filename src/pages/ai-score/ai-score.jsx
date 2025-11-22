@@ -11,7 +11,8 @@ const AiScore = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const videoId = location.state?.videoId;
-  const score = location.state?.score || 78;
+  const score = location.state?.score || 1;
+  const nickname = localStorage.getItem("nickname") || "사용자";
   const memberId = localStorage.getItem("memberId") || "1";
 
   const handleDelete = async () => {
@@ -59,7 +60,7 @@ const AiScore = () => {
 
       <div className={styles.mainContent}>
         <h2 className={styles.title}>
-          {memberId}님의
+          {nickname}님의
           <br />
           낙엽 평가가 완료되었어요!
         </h2>
