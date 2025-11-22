@@ -10,7 +10,7 @@ const UPLOAD_STATUS = {
 };
 
 const DEFAULT_OPTIONS = {
-  maxSize: 5 * 1024 * 1024, // 5MB
+  maxSize: 5 * 1024 * 1024,
   allowedTypes: [
     "video/mp4",
     "video/quicktime",
@@ -55,18 +55,12 @@ const useUpload = (options = {}) => {
   const fileInputRef = useRef(null);
   const dropZoneRef = useRef(null);
 
-  /**
-   * 파일 검증
-   * @param {File} file - 검증할 파일
-   * @returns {Object} { valid: boolean, error: string | null }
-   */
   const validateFile = useCallback(
     (file) => {
       if (!file) {
         return { valid: false, error: "파일이 선택되지 않았습니다." };
       }
 
-      // 파일 타입 검증
       if (!config.allowedTypes.includes(file.type)) {
         return {
           valid: false,
@@ -74,7 +68,6 @@ const useUpload = (options = {}) => {
         };
       }
 
-      // 파일 크기 검증
       if (file.size > config.maxSize) {
         const maxSizeMB = (config.maxSize / (1024 * 1024)).toFixed(2);
         return {
@@ -88,14 +81,8 @@ const useUpload = (options = {}) => {
     [config.allowedTypes, config.maxSize],
   );
 
-  /**
-   * 파일 업로드
-   * @param {File} file - 업로드할 파일
-   * @param {Object} additionalData - 추가로 전송할 데이터 (FormData에 포함)
-   */
   const upload = useCallback(
     async (file, additionalData = {}) => {
-      // 파일 검증
       const validation = validateFile(file);
       if (!validation.valid) {
         setError(validation.error);
@@ -106,12 +93,10 @@ const useUpload = (options = {}) => {
         return;
       }
 
-      // 이전 업로드 취소
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
       }
 
-      // 새로운 AbortController 생성
       abortControllerRef.current = new AbortController();
 
       setStatus(UPLOAD_STATUS.UPLOADING);
@@ -119,17 +104,13 @@ const useUpload = (options = {}) => {
       setError(null);
 
       try {
-        // 업로드 요청 (axios 사용)
-        // FormData 생성
         const formData = new FormData();
         formData.append("file", file);
 
-        // 추가 데이터 추가
         Object.keys(additionalData).forEach((key) => {
           formData.append(key, additionalData[key]);
         });
 
-        // axios를 사용한 업로드 요청
         const response = await axiosInstance.post(config.endpoint, formData, {
           signal: abortControllerRef.current.signal,
           headers: {
@@ -158,7 +139,6 @@ const useUpload = (options = {}) => {
 
         return response.data;
       } catch (err) {
-        // 취소된 요청은 에러로 처리하지 않음
         if (axios.isCancel(err)) {
           setStatus(UPLOAD_STATUS.IDLE);
           setProgress(0);
@@ -182,9 +162,6 @@ const useUpload = (options = {}) => {
     [config, validateFile],
   );
 
-  /**
-   * 업로드 취소
-   */
   const cancel = useCallback(() => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
@@ -195,20 +172,11 @@ const useUpload = (options = {}) => {
     setError(null);
   }, []);
 
-  /**
-   * 상태 초기화
-   */
   const reset = useCallback(() => {
     cancel();
     setUploadedFile(null);
   }, [cancel]);
 
-  /**
-   * 파일 선택 다이얼로그 열기 (모바일: 갤러리, 데스크톱: 파일 탐색기)
-   * @param {Object} options - 파일 선택 옵션
-   * @param {boolean} options.multiple - 여러 파일 선택 허용
-   * @param {string} options.accept - 허용할 파일 타입 (예: "video/*")
-   */
   const openFileDialog = useCallback(
     (options = {}) => {
       if (!fileInputRef.current) {
@@ -217,17 +185,19 @@ const useUpload = (options = {}) => {
         input.accept = options.accept || "video/*";
         input.multiple = options.multiple || false;
 
+        if (isMobileDevice && options.capture) {
+          input.capture = options.capture;
+        }
+
         input.style.display = "none";
         document.body.appendChild(input);
         fileInputRef.current = input;
 
-        // 파일 선택 이벤트 리스너
         const handleChange = (e) => {
           const file = e.target.files?.[0];
           if (file) {
             upload(file, options.additionalData);
           }
-          // 정리
           if (input.parentNode) {
             input.parentNode.removeChild(input);
           }
@@ -243,10 +213,6 @@ const useUpload = (options = {}) => {
     [isMobileDevice, upload],
   );
 
-  /**
-   * 드래그 앤 드롭 핸들러 설정 (데스크톱)
-   * @param {HTMLElement} element - 드롭 존 요소
-   */
   const setupDragAndDrop = useCallback(
     (element) => {
       if (!element || isMobileDevice) {
@@ -291,7 +257,6 @@ const useUpload = (options = {}) => {
   );
 
   return {
-    // 상태
     status,
     progress,
     error,
@@ -302,14 +267,12 @@ const useUpload = (options = {}) => {
     isUploading: status === UPLOAD_STATUS.UPLOADING,
     isSuccess: status === UPLOAD_STATUS.SUCCESS,
     isError: status === UPLOAD_STATUS.ERROR,
-    // 함수
     upload,
     openFileDialog,
     setupDragAndDrop,
     cancel,
     reset,
     validateFile,
-    // refs
     fileInputRef,
     dropZoneRef,
   };
