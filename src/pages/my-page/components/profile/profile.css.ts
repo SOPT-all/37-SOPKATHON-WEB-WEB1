@@ -14,8 +14,8 @@ export const profileContainer = style({
 });
 
 export const statsContainer = style({
-  width: "calc(100% - 3.2rem)",
-  height: "6.5rem",
+  width: "34.3rem",
+  height: "10.5rem",
   display: "flex",
   backgroundColor: color.gray[200],
   borderRadius: "1.2rem",
