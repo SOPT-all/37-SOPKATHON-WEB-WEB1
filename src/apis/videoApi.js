@@ -21,3 +21,15 @@ export const deleteVideo = async (videoId, memberId) => {
     },
   });
 };
+
+export const toggleLike = async (videoId, memberId) => {
+  return await post(
+    API_URL.LIKE_VIDEO(videoId),
+    {},
+    {
+      headers: {
+        memberId: memberId,
+      },
+    }
+  );
+};
