@@ -25,24 +25,23 @@ export const buttonVariants = styleVariants({
   primary: [
     base,
     {
-      // 컬러, 배경 컬러는 변경 필요
-      backgroundColor: color.brand[700],
-      color: color.white[700],
+      backgroundColor: color.brand["red"],
+      color: color.white,
     },
   ],
   solid: [
     base,
     {
-      border: `1px solid ${color.brand[700]}`,
-      backgroundColor: color.white[700],
-      color: color.brand[700],
+      border: `1px solid ${color.brand["red"]}`,
+      backgroundColor: color.white,
+      color: color.brand["red"],
     },
   ],
   default: [
     base,
     {
       backgroundColor: color.gray[700],
-      color: color.white[700],
+      color: color.white,
     },
   ],
 });
@@ -54,10 +53,10 @@ export const sizeVariants = styleVariants({
   },
   medium: {
     padding: "1rem",
-    ...typography.body2,
+    ...typography.body1,
   },
   large: {
-    padding: "1.3rem",
-    ...typography.heading3,
+    padding: "1.6rem",
+    ...typography.sub_title2,
   },
 });
