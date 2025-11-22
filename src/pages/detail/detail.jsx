@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as styles from "./detail.css";
 import leftIcon from "./../../assets/icons/leftIcon.png";
+import { getVideoData } from "../../apis/getVideoData";
 // import likeOn from "../../assets/icons/like-on.png";
 // import likeOff from "../../assets/icons/like-off.png";
 // 실제 API 경로에 맞게 수정해서 사용하시면 됩니다.
@@ -18,41 +19,32 @@ import leftIcon from "./../../assets/icons/leftIcon.png";
 export const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  //   const videoId = .get("videoId");
 
-  const [videoData, setVideoData] = useState({
-    memberId: 42,
-    nickname: "테스트유저",
-    videoUrl: "https://example.com/videos/test_video.mp4",
-    thumbnailUrl: "https://example.com/videos/test_thumbnail.jpg",
-    likeCount: 87,
-    content: "이 영상은 연습 기록용으로 업로드된 테스트 데이터입니다.",
-    score: 92,
-  });
+  const [videoData, setVideoData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  //   useEffect(() => {
-  //     if (!videoId) {
-  //       setError("videoId가 존재하지 않습니다.");
-  //       setLoading(false);
-  //       return;
-  //     }
+  useEffect(() => {
+    if (!id) {
+      setError("videoId가 존재하지 않습니다.");
+      setLoading(false);
+      return;
+    }
 
-  //     const fetchVideo = async () => {
-  //       try {
-  //         setLoading(true);
-  //         const data = await getVideo(videoId);
-  //         setVideoData(data);
-  //       } catch (err) {
-  //         setError(err.message || "영상 정보를 불러오지 못했습니다.");
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
+    const fetchVideo = async () => {
+      try {
+        setLoading(true);
+        const data = await getVideoData(id);
+        setVideoData(data);
+      } catch (err) {
+        setError(err.message || "영상 정보를 불러오지 못했습니다.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //     fetchVideo();
-  //   }, [videoId]);
+    fetchVideo();
+  }, []);
 
   const handleBack = () => {
     navigate(-1);
