@@ -9,11 +9,11 @@ const Layout = () => {
   return (
     <div
       style={{
-        maxWidth: "372px",
+        maxWidth: "37.5rem",
         minHeight: "100vh",
         margin: "0 auto",
         position: "relative",
-        backgroundColor: "#fff",
+        backgroundColor: "transparent",
       }}
     >
       <main>
