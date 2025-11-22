@@ -1,7 +1,10 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/footer/footer";
 
 const Layout = () => {
+  const location = useLocation();
+  const hideFooter = location.pathname === "/add-video";
+
   return (
     <div
       style={{
@@ -15,7 +18,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   );
 };

@@ -9,7 +9,7 @@ const AddVideoHeader = () => {
     <header className={styles.header}>
       <button
         className={styles.backButton}
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
         aria-label="뒤로가기"
       >
         <img src={backIcon} alt="뒤로가기" className={styles.backIcon} />

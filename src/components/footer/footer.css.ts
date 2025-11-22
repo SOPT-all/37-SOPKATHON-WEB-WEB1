@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import { color } from "../../styles/token/color";
 
 export const footerContainer = style({
   position: "fixed",
@@ -12,7 +13,7 @@ export const footerContainer = style({
 export const footerBar = style({
   width: "231px",
   height: "68px",
-  backgroundColor: "#FFF",
+  backgroundColor: color.white,
   borderRadius: "100px",
   padding: "0 12px",
   display: "flex",
@@ -46,7 +47,7 @@ export const centerButton = style({
   width: "44px",
   height: "44px",
   borderRadius: "50%",
-  background: "#DC453A",
+  background: color.brand.red,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
