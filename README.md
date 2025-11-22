@@ -1,20 +1,18 @@
 <div align="center">
-  <h2>서비스이름</h2>
-  <p>.</p>
+  <h1>🍁바스락(BASRAK)🍁</h1>
+  <p>외로운 유학 생활에 스트레스는 밟고, 친구는 잇는 선택 </p>
 </div>
 
 <h2> 한줄소개 </h2>
 
-<h3> 1️⃣ 주요기능  </h3>
-<div>.
-  <br /></div>
+<h3>1️⃣ 낙엽 밟기 영상 업로드  </h3>
+AI 점수 평가를 받고 싶은 낙엽 밟기 영상을 업로드합니다.
 
-<h3> 2️⃣ 주요기능 </h3>
-<div>.
- <br /></div>
+<h3> 2️⃣ 낙엽 밟기 영상에 대한 AI 평가 </h3>
+업로드 한 낙엽 밟기 영상의 시각, 청각적 요소에 대해 AI가 평가를 내립니다.
 
- <h3> 3️⃣ 주요기능 </h3>
-<div>.
+ <h3> 3️⃣ AI 점수 순으로 보는 낙엽 밟기 영상 피드 </h3>
+홈 피드에서 좋아요, AI 점수 순으로 인기 있는 낙엽 밟기 영상을 볼 수 있습니다.
 
 <h2> 👥 팀원 </h2>
 
@@ -56,19 +54,13 @@
             <td style="border: 1px solid #ccc;">박원</td>
             <td style="border: 1px solid #ccc;">오수빈</td>
         </tr>
-        <tr>
-            <td style="border: 1px solid #ccc;">.</td>
-            <td style="border: 1px solid #ccc;">.</td>
-            <td style="border: 1px solid #ccc;">.</td>
-            <td style="border: 1px solid #ccc;">.</td>
-        </tr>
     </tbody>
 </table>
 
 <h2> 🛠 기술스택 </h2>
 
-| 역할                       | 종류|
-| -------------------------- | ---|
+| 역할                       | 종류                                                                                                                                                                                                              |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 | **`Build Tool`**           | ![VITE](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=Vite&logoColor=white)                                                                                                                   |
 | **`Library`**              | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white)                                                                                                                |
 | **`Programming Language`** | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=white)                                                                                             |
@@ -125,7 +117,9 @@
 <h2>그라운드 룰</h2>
 
 #### 1. 투명하고 즉각적인 공유 📢
+
 #### 2. 긍정적이고 자신감있는 태도 😊
+
 #### 3. 개발은 기세다 ㅋㅋ 👍
 
 <br>

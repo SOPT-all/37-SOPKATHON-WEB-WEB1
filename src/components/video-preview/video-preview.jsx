@@ -21,8 +21,14 @@ const RankBadge = ({ idx }) => {
 };
 
 export { RankBadge };
-
-const VideoPreview = ({ videoId, nickname, likeCount, imageUrl, idx }) => {
+const VideoPreview = ({
+  videoId,
+  nickname,
+  likeCount,
+  imageUrl,
+  idx,
+  showRankBadge = true,
+}) => {
   const navigate = useNavigate();
   const {
     likeCount: currentLikeCount,
@@ -48,7 +54,7 @@ const VideoPreview = ({ videoId, nickname, likeCount, imageUrl, idx }) => {
     >
       <img src={imageUrl} alt={nickname} className={styles.image} />
       <div className={styles.nicknameWrapper}>
-        <RankBadge idx={idx} />
+        {showRankBadge && <RankBadge idx={idx} />}
         <div className={styles.nickname}>{nickname}</div>
       </div>
       <button
