@@ -26,7 +26,7 @@ const VideoPreview = ({ nickname, likeCount, imageUrl, idx, videoId }) => {
     <button
       type="button"
       className={styles.container}
-      onClick={() => navigate("/")}
+      onClick={() => navigate(`/detail/${videoId}`)}
     >
       <img src={imageUrl} alt={nickname} className={styles.image} />
       <div className={styles.nicknameWrapper}>

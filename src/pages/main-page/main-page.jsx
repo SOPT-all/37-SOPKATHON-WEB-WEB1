@@ -82,11 +82,10 @@ const MainPage = () => {
   const fetchVideos = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await get(`/api/v1/videos/home`);
-      console.log(response);
+      const response = await get(`/api/v1/videos/feed`);
       const newData = response || [];
-      setVideos(newData);
-      console.log(newData);
+      setVideos(newData.data.items);
+      console.log(newData.data.items);
     } catch (error) {
       console.error("피드 불러오기 실패", error);
     } finally {
@@ -108,7 +107,7 @@ const MainPage = () => {
           <img className={styles.text} src={TEXT} />
           <img className={styles.yellow} src={Character5} />
           <img className={styles.red} src={Character6} />
-          <MainGrid videos={MOCK_VIDEOS} />;
+          <MainGrid videos={videos || []} />;
         </>
       )}
     </div>
