@@ -4,6 +4,7 @@ import { Button } from "./../../components/button/button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "./../../assets/images/logo.png";
+import { postLogin } from "../../apis/postLogin";
 
 export const SignUpPage = () => {
   const navigate = useNavigate();
@@ -23,14 +24,12 @@ export const SignUpPage = () => {
   };
 
   // 회원가입 API
-  const handleSubmit = () => {
-    // const data = {
-    //   nickname: formData.nickname.trim(),
-    //   password: formData.password.trim(),
-    // };
-    const result = false;
-    if (result) {
-      navigate("/", { replace: true });
+  const handleSubmit = async () => {
+    console.log("클릭됨");
+    const { success, data } = await postLogin(formData);
+
+    if (success) {
+      navigate("/main", { replace: true });
     } else {
       setError(true);
     }
