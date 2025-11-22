@@ -74,4 +74,5 @@ export const centerIcon = style({
   width: "26px",
   height: "26px",
   display: "block",
+  filter: "brightness(0) invert(1)",
 });
