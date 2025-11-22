@@ -7,7 +7,7 @@ export const pageContainer = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "2rem",
+  padding: "0 2rem",
   position: "relative",
   backgroundImage: `url(${backgroundImage})`,
 });
@@ -16,8 +16,7 @@ export const header = style({
   fontSize: "1.8rem",
   fontWeight: 600,
   color: color.black,
-  marginTop: "2rem",
-  marginBottom: "4rem",
+  padding: "1.5rem 0",
 });
 
 export const mainContent = style({
@@ -30,6 +29,7 @@ export const mainContent = style({
 });
 
 export const title = style({
+  position: "absolute",
   fontSize: "2.3rem",
   fontWeight: 500,
   color: "black",
@@ -53,7 +53,7 @@ export const scoreBoardImage = style({
 
 export const scoreText = style({
   position: "absolute",
-  top: "62%",
+  top: "58%",
   left: "50%",
 
   transform: "translate(-50%, -50%)",
