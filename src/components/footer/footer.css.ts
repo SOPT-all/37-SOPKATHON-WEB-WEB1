@@ -12,7 +12,7 @@ export const footerContainer = style({
 export const footerBar = style({
   width: "231px",
   height: "68px",
-  backgroundColor: "#F5F5F5",
+  backgroundColor: "#FFF",
   borderRadius: "100px",
   padding: "0 12px",
   display: "flex",
@@ -46,7 +46,7 @@ export const centerButton = style({
   width: "44px",
   height: "44px",
   borderRadius: "50%",
-  backgroundColor: "#D9D9D9",
+  background: "#DC453A",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -57,7 +57,6 @@ export const centerButton = style({
   boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
   ":hover": {
     transform: "scale(1.05)",
-    backgroundColor: "#CCCCCC",
   },
   ":active": {
     transform: "scale(0.95)",
@@ -65,13 +64,13 @@ export const centerButton = style({
 });
 
 export const icon = style({
-  width: "20px",
-  height: "20px",
+  width: "26px",
+  height: "26px",
   display: "block",
 });
 
 export const centerIcon = style({
-  width: "24px",
-  height: "24px",
+  width: "26px",
+  height: "26px",
   display: "block",
 });
