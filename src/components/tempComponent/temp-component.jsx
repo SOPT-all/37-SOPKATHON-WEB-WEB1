@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-function tempCompoenent() {
+const TempCompoenent = () => {
   const { t } = useTranslation();
 
   return (
@@ -11,6 +11,6 @@ function tempCompoenent() {
       </section>
     </div>
   );
-}
+};
 
-export default tempCompoenent;
+export default TempCompoenent;
