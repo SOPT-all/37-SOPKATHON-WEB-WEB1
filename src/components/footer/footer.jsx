@@ -12,7 +12,7 @@ const Footer = () => {
       <nav className={styles.footerBar}>
         <button
           className={styles.iconButton}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/main")}
           aria-label="홈"
         >
           <img src={homeIcon} alt="홈" className={styles.icon} />
