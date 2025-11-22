@@ -72,6 +72,10 @@ const MOCK_VIDEOS = [
 ];
 
 const MainPage = () => {
+  const handleTabChange = (index, value) => {
+    console.log("Tab changed:", index, value);
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>

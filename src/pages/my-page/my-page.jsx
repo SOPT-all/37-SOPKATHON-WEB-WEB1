@@ -1,8 +1,28 @@
+import { useState } from "react";
+import Header from "./components/header/header";
+import Profile from "./components/profile/profile";
+import Tab from "./components/tab/tab";
+import backgroundImage from "../../assets/icons/home-background.png";
+import * as styles from "./my-page.css";
+
 const MyPage = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabChange = (index, value) => {
+    setActiveTab(index);
+    console.log("Tab changed:", index, value);
+  };
+
   return (
-    <div>
-      <h1>마이페이지</h1>
-      <p>내 정보를 확인하는 페이지입니다.</p>
+    <div className={styles.container}>
+      <Header />
+      <div
+        className={styles.content}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
+        <Profile />
+        <Tab defaultTab={activeTab} onChange={handleTabChange} />
+      </div>
     </div>
   );
 };
