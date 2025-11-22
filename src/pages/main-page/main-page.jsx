@@ -3,6 +3,10 @@ import sampleImage2 from "../../assets/images/sample2.jpeg";
 import sampleImage3 from "../../assets/images/sample3.jpg";
 import { MainGrid } from "../../components/main-grid/main-grid";
 import * as styles from "./main-page.css";
+import LOGO from "../../assets/icons/logo.svg";
+import Character6 from "../../assets/images/img_character6.png";
+import Character5 from "../../assets/images/img_character5.png";
+import TEXT from "../../assets/images/home_text.png";
 
 const MOCK_VIDEOS = [
   {
@@ -70,6 +74,12 @@ const MOCK_VIDEOS = [
 const MainPage = () => {
   return (
     <div className={styles.container}>
+      <header className={styles.header}>
+        <img src={LOGO} alt="로고" />
+      </header>
+      <img className={styles.text} src={TEXT} />
+      <img className={styles.yellow} src={Character5} />
+      <img className={styles.red} src={Character6} />
       <MainGrid videos={MOCK_VIDEOS} />;
     </div>
   );
