@@ -20,3 +20,13 @@ export const post = async (url, body, config) => {
     throw error;
   }
 };
+
+export const del = async (url, config) => {
+  try {
+    const response = await axiosInstance.delete(url, config);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

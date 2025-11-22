@@ -1,4 +1,4 @@
-import { post } from "./http";
+import { post, del } from "./http";
 import { API_URL } from "../constants/API_URL";
 
 export const uploadVideo = async (videoFile, content, memberId) => {
@@ -12,4 +12,24 @@ export const uploadVideo = async (videoFile, content, memberId) => {
       memberId: memberId,
     },
   });
+};
+
+export const deleteVideo = async (videoId, memberId) => {
+  return await del(API_URL.DELETE_VIDEO(videoId), {
+    headers: {
+      memberId: memberId,
+    },
+  });
+};
+
+export const toggleLike = async (videoId, memberId) => {
+  return await post(
+    API_URL.LIKE_VIDEO(videoId),
+    {},
+    {
+      headers: {
+        memberId: memberId,
+      },
+    }
+  );
 };

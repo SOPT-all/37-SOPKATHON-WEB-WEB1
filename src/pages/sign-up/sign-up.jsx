@@ -31,11 +31,10 @@ export const SignUpPage = () => {
     const { code, data, msg } = await postLogin(formData);
 
     if (code === 200) {
-      // 응답 데이터에서 userId / nickname 추출
-      const { userId, nickname } = data;
+      const { memberId, nickname } = data;
 
-      if (userId != null) {
-        localStorage.setItem("userId", String(userId));
+      if (memberId != null) {
+        localStorage.setItem("memberId", String(memberId));
       }
       if (nickname) {
         localStorage.setItem("nickname", nickname);
