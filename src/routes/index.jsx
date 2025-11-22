@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "../layouts";
-import MainPage from "../pages/MainPage";
+import MainPage from "../pages/main-page/main-page";
+import AddVideo from "../pages/add-video/add-video";
+import MyPage from "../pages/my-page/my-page";
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +13,15 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <MainPage />,
-      }, // Pages 추가
+      },
+      {
+        path: "add-video",
+        element: <AddVideo />,
+      },
+      {
+        path: "my-page",
+        element: <MyPage />,
+      },
     ],
   },
 ]);
