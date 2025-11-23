@@ -135,3 +135,5 @@ AI 점수 평가를 받고 싶은 낙엽 밟기 영상을 업로드합니다.
 <img src="https://github.com/user-attachments/assets/855dfb67-9e5d-45f1-8b91-5eb1bff52a80" alt="웹 1조 before 사진"/>
 
 <h3>After😫</h3>
+<img src="https://github.com/user-attachments/assets/4d015f10-1e65-447a-a1b0-8e1448eee801" alt="웹 1조 before 사진"/>
+<!-- ![KakaoTalk_Photo_2025-11-23-09-56-22](https://github.com/user-attachments/assets/4d015f10-1e65-447a-a1b0-8e1448eee801) -->
